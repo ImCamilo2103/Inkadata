@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOW Inkata</title>
+    <link rel="stylesheet" href="css/datandes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+</head>
+<body>
+    <div class="datandes-header">
+        <img src="../imagenes/datandes.jpg" alt="DatAndes Banner" class="banner-img">
+        <h1>STATEMENT OF WORK: INKATA ECONOMICO</h1>
+        <p class="subtitle">Análisis comparativo de la Encuesta Anual Manufacturera 
+            (EAM) 2016, 2019 y 2022.</p>
+    </div>
+    
+    <div class="datandes-container">
+        <div class="section">
+            <h2><i class="fas fa-info-circle"></i>1. DATOS DEL PROYECTO</h2>
+            <table>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>Cliente</td>
+                    <td>DataForge Analytics</td>
+                </tr>
+                <tr>
+                    <td>Proyecto</td>
+                    <td>Análisis comparativo de la Encuesta Anual Manufacturera 
+                        (EAM) 2016, 2019 y 2022.</td>
+                </tr>
+                <tr>
+                    <td>Versión</td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td>Fecha Inicio</td>
+                    <td>25-Jun-2025</td>
+                </tr>
+                <tr>
+                    <td>Fecha Fin</td>
+                    <td>20-Jul-2025</td>
+                </tr>
+                <tr>
+                    <td>Líder de Proyecto</td>
+                    <td>Camilo Garzón M.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-bullseye"></i> 2. OBJETIVOS PRINCIPALES</h2>
+            <div class="criteria-container">
+                <div class="criteria-card">
+                    <div class="criteria-number">1</div>
+                    <h3>ANALIZAR LA EMPLEABLILIDAD POR DEPARTAMENTO</h3>
+                    <p>En Colombia con base en los datos reportados por el sector manufacturero, identificando 
+                        diferencias regionales y posibles concentraciones laborales.</p>
+                </div>
+
+                <div class="criteria-card">
+                    <div class="criteria-number">2</div>
+                    <h3>EVALUAR LA DISTRIBUCION DE TRABAJADORES POR GENERO</h3>
+                    <p>en cada departamento, con el fin de identificar posibles brechas o avances 
+                        en equidad laboral dentro de la industria manufacturera.</p>
+                </div>
+
+                <div class="criteria-card">
+                    <div class="criteria-number">3</div>
+                    <h3>MEDIR EL CRECIMIENTO DEL SECTOR MANUFACTURERO CADA TRES AÑOS</h3>
+                    <p>Partir de indicadores como empleo total, número de empresas y volumen de 
+                        producción, para identificar tendencias de desarrollo económico en el 
+                        tiempo.</p>
+                </div>
+
+                <div class="criteria-card">
+                    <div class="criteria-number">4</div>
+                    <h3>ANALIZAR LOS GASTOS OPERACIONALES POR DEPARTAMENTO</h3>
+                    <p>Con el fin de identificar regiones con mayores costos de producción y 
+                        evaluar su impacto sobre la eficiencia y competitividad del sector 
+                        manufacturero.</p>
+                </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-cogs"></i> 3. ALCANCE TÉCNICO</h2>
+            <div class="mermaid">
+                graph LR
+                A[Extracción NASA] --> B[Limpieza Pandas]
+                B --> C[PostgreSQL]
+                C --> D[Análisis R]
+                D --> E[Dashboards]
+
+                classDef datandesNode fill:#e0e1dd,stroke:#d3d3d3,color:#1b263b,stroke-width:2px;
+                class A,B,C,D,E datandesNode;
+            </div>
+
+            <table>
+                <tr>
+                    <th>Componente</th>
+                    <th>Tecnologías</th>
+                    <th>Entregables</th>
+                </tr>
+                <tr>
+                    <td><strong>Extracción</strong></td>
+                    <td>Python, Requests, urllib</td>
+                    <td>Datasets NASA en /data/raw</td>
+                </tr>
+                <tr>
+                    <td><strong>Transformación</strong></td>
+                    <td>Pandas</td>
+                    <td>Datos limpios en Parquet</td>
+                </tr>
+                <tr>
+                    <td><strong>Almacenamiento</strong></td>
+                    <td>PostgreSQL</td>
+                    <td>Esquema 3NF normalizado</td>
+                </tr>
+                <tr>
+                    <td><strong>Análisis</strong></td>
+                    <td>R, Tidyverse</td>
+                    <td>Reporte estadístico PDF</td>
+                </tr>
+                <tr>
+                    <td><strong>Visualización</strong></td>
+                    <td>Tableau, Power BI</td>
+                    <td>Dashboard interactivo</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-calendar-alt"></i> 4. CRONOGRAMA PRINCIPAL</h2>
+            <div class="gantt-chart">
+                <h3 class="phase-title">FASE 1: PREPARACIÓN DE DATOS</h3>
+                <div class="gantt-bar" style="width: 20%;">Descarga datos DANE (1 días)</div>
+                <div class="gantt-bar" style="width: 30%;">Limpieza inicial (2 días)</div>
+
+                <h3 class="phase-title">FASE 2: MODELADO Y ANÁLISIS</h3>
+                <div class="gantt-bar" style="width: 50%;">Modelado PostgreSQL (2 días)</div>
+                <div class="gantt-bar" style="width: 70%;">Análisis con R (4 días)</div>
+
+                <h3 class="phase-title">FASE 3: DESPLIEGUE</h3>
+                <div class="gantt-bar" style="width: 40%;">Despliegue Dashboards (3 días)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-clipboard-check"></i> 5. CRITERIOS DE ACEPTACIÓN</h2>
+            <div class="criteria-container">
+                <table>
+                    <tr>
+                        <th>CRITERIO</th>
+                        <th>CONDICION MINIMA ACEPTADA</th>
+                        <th>JUSTIFICACION</th>
+                    </tr>
+                    <tr>
+                        <td>Completitud de los datos</td>
+                        <td>No más del 0.1% de valores nulos por variable</td>
+                        <td>Garantiza representatividad y reduce sesgos.</td>
+                    </tr>
+                    <tr>
+                        <td>Simetría de distribución</td>
+                        <td>Asimetría absoluta < 0.5 para variables clave</td>
+                        <td>Evita sesgos extremos en análisis comparativo.</td>
+                    </tr>
+                    <tr>
+                        <td>Rendimiento</td>
+                        <td>Tiempo de carga < 15 segundos (dashboards y consultas SQL)</td>
+                        <td>Asegura experiencia fluida para usuario final.</td>
+                    </tr>
+                    <tr>
+                        <td>Trazabilidad</td>
+                        <td>Todos los datos deben tener fuente (EAM - DANE) documentada</td>
+                        <td>Garantiza reproducibilidad y validación externa.</td>
+                    </tr>
+                    <tr>
+                        <td>Precisión de métricas</td>
+                        <td>Diferencia < 2% al validar con totales publicados por DANE</td>
+                        <td>Evita errores de redondeo, filtrado o transformación.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-exclamation-triangle"></i> 6. RIESGOS PRINCIPALES</h2>
+            <div class="risk-table">
+                <table>
+                    <tr>
+                        <th>RIESGO</th>
+                        <th>DESCRIPCION</th>
+                        <th>IMPACTO</th>
+                        <th>MITIGACION</th>
+                    </tr>
+
+                    <tr class="priority-critical">
+                        <td>Cambios en la estructura de datos</td>
+                        <td>Las estructuras descargadas pueden no coincidir con las definidas en 
+                            los formularios EAM, afectando el procesamiento automatizado.</td>
+                        <td>Alto</td>
+                        <td>Validación de estructuras con scripts previos a la carga. 
+                            Implementación de pruebas unitarias en la fase de ingestión.</td>
+                    </tr>
+
+                    <tr class="priority-high">
+                        <td>Sesgos en los datos originales</td>
+                        <td>Pueden presentarse distribuciones sesgadas en variables clave como 
+                            género o tamaño de empresa.</td>
+                        <td>Crítico</td>
+                        <td>Validación con métodos estadísticos en R. Aplicación de técnicas de 
+                            remuestreo como SMOTE si se requiere.</td>
+                    </tr>
+
+                    <tr class="priority-medium">
+                    <td>Rendimiento y estabilidad en PostgreSQL</td>
+                    <td>La entrada de datos puede fallar o generar registros erróneos que 
+                        afecten consultas y KPIs.</td>
+                    <td>Medio</td>
+                    <td>Validación por lotes, índices en claves primarias, control de errores 
+                        en scripts de carga.</td>
+                    </tr>
+
+                    <tr class="priority-medium">
+                        <td>Integración entre Python, PostgreSQL, R y Tableau</td>
+                        <td>Puede haber fallos de compatibilidad o de sincronización entre 
+                            herramientas en la fase de análisis y visualización.</td>
+                        <td>Bajo</td>
+                        <td>Automatización mediante pipelines reproducibles y pruebas de integridad 
+                            entre cada etapa.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-signature"></i> 7. FIRMAS</h2>
+            <div class="signature-area">
+                <div class="signature-line">
+                    <p>___________________________________________</p>
+                    <p>Camilo Garzón M.</p>
+                    <p>Líder de Proyecto - Inkadata Economico</p>
+                </div>
+
+                <div class="signature-line">
+                    <p>___________________________________________</p>
+                    <p>Nasly Peña G.</p>
+                    <p>CIO</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-brand">
+            <img src="../imagenes/datandes.jpg" alt="DatAndes Banner" class="footer-img"/>
+            <div class="footer-logo">
+            </div>
+            <h3>INKADATA ECONÓMICO</h3>
+            <p>Transformando los datos públicos en decisiones estratégicas</p>
+            <p>www.datandes.com | contacto@datandes.com</p>
+        </div>
+
+        <center>
+            <button class="download-btn" onclick="downloadSOW()">
+                <i class="fas fa-download"></i> Descargar SOW como PDF
+            </button>
+        </center>
+
+        <script>
+        function downloadSOW() {
+            alert("Función de descarga activada: En un entorno real, esto generaría un PDF del documento.");
+            // En una implementación real, aquí iría el código para generar el PDF
+        }
+        </script>
+    </div>
+</body>
+</html>
