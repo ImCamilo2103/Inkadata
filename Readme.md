@@ -22,6 +22,7 @@
 - [🏭 Dominio del Proyecto](#-dominio-del-proyecto)
 - [🎯 Objetivos](#-objetivos)
 - [🗂️ Estructura del Proyecto](#️-estructura-del-proyecto)
+- [🚀 Primeros Pasos](#-Primeros-Pasos)
 - []()
 - [🎨 Paleta de colores DatAndes](#-Paleta-de-colores-DatAndes)
 - [🧑‍🤝‍🧑 Stakeholders del Proyecto](#-Stakeholders-del-Proyecto)
@@ -66,13 +67,41 @@ El **objetivo principal** es identificar patrones económicos y contrastar los a
 
 ---
 
+## 🚀 Primeros Pasos
+
+### 1. Clona este repositorio.
+
+```bash
+git clone https://github.com/ImCamilo2103/Inkadata.git
+cd Inkadata
+```
+
+### 2. Crea un entorno virtual e instala las dependencias
+
+```bash
+python -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 3. Ejecuta los scripts en orden lógico
+
+```bash
+python  scripts/01_web_scraping.py
+python  scripts/02_ws_archivos_independienets.py
+Python  scripts/03_extraccion_link_descarga.py
+python  scripts/04_descarga_dataset.py
+```
+
+---
+
 ### 🎨 Paleta de colores DatAndes
 
 - `#1B263B` – Azul oscuro profesional  
-- `#415A77` – Azul acero (confianza)  
-- `#778DA9` – Gris azulado (respaldo técnico)  
-- `#E0E1DD` – Blanco grisáceo (claridad)  
-- `#F4A261` – Naranja suave (energía y proactividad)
+- `#415A77` – Azul acero
+- `#778DA9` – Gris azulado
+- `#E0E1DD` – Blanco grisáceo
+- `#F4A261` – Naranja suave
 
 ---
 

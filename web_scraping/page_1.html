@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Industria.
+  </title>
+  <meta content="El catÃ¡logo de datos le permite navegar, buscar y descargar los metadatos de la operaciÃ³n estadÃ­stica y sus datos." name="description">
+   <link href="https://microdatos.dane.gov.co/themes/nada/css/font-awesome.min.css" rel="stylesheet"/>
+   <link href="https://microdatos.dane.gov.co/themes/nada/css/bootstrap.min.css" rel="stylesheet"/>
+   <link href="https://microdatos.dane.gov.co/themes/nada/css/style.css?v03212019" rel="stylesheet"/>
+   <link href="https://microdatos.dane.gov.co/themes/nada/css/custom.css?v03212019" rel="stylesheet"/>
+   <script src="https://microdatos.dane.gov.co/javascript/jquery/jquery.js">
+   </script>
+   <script src="https://microdatos.dane.gov.co/themes/nada/js/popper.min.js">
+   </script>
+   <script src="https://microdatos.dane.gov.co/themes/nada/js/bootstrap.min.js">
+   </script>
+   <script src="https://microdatos.dane.gov.co/themes/nada/js/script.js">
+   </script>
+   <script src="https://microdatos.dane.gov.co/javascript/jquery.ba-bbq.js" type="text/javascript">
+   </script>
+   <script type="text/javascript">
+    var CI = {'base_url': 'https://microdatos.dane.gov.co/index.php'};
+
+    if (top.frames.length!=0) {
+        top.location=self.document.location;
+    }
+
+    $(document).ready(function()  {
+        /*global ajax error handler */
+        $( document ).ajaxError(function(event, jqxhr, settings, exception) {
+            if(jqxhr.status==401){
+                window.location=CI.base_url+'/auth/login/?destination=catalog/';
+            }
+            else if (jqxhr.status>=500){
+                alert(jqxhr.responseText);
+            }
+        });
+
+    }); //end-document-ready
+   </script>
+   <script type="text/javascript">
+    var i18n=
+{
+'searching':"Buscando, por favor espere...",
+'loading':"Cargando, por favor espere...",
+'invalid_year_range_selected':"Rango de aÃ±os seleccionados no vÃ¡lidos.",
+'topic_selected':"tema seleccionado",
+'topics_selected':"temas seleccionados",
+'collection_selected':"colecciÃ³n seleccionada",
+'collections_selected':"colecciones seleccionadas",
+'country_selected':"paÃ­s seleccionado",
+'countries_selected':"paÃ­ses seleccionados",
+'cancel':"Cancelar",
+'apply_filter':"Aplicar filtro",
+'clear':"Limpiar",
+'js_compare_variables_selected':"variables selected from",
+'js_compare_studies_selected':"studies",
+'js_compare_variable_select_atleast_2':"Select two or more variables to compare",
+'selected':"selected"
+};
+   </script>
+   <script src="https://microdatos.dane.gov.co/javascript/datacatalog.js?v=062025" type="text/javascript">
+   </script>
+   <script src="https://microdatos.dane.gov.co/javascript/jquery.blockui.js?v=062025" type="text/javascript">
+   </script>
+  </meta>
+ </head>
+ <body>
+  <!-- site header -->
+  <header class="header shadow-sm" id="header">
+   <div class="container-fluid">
+    <div class="row contenedor-header">
+     <div class="col-xs-12 col-md-6 col-xl-6 p-0 column-1">
+      <!-- <img src=https://microdatos.dane.gov.co/themes/nada/images/header/LogoAnda.svg alt="LogoANDA"
+              class="img-fluid logoANDA" /> -->
+      <img alt="" src="https://microdatos.dane.gov.co/themes/nada/images/header/logo_colombia_potencia_de_vida.svg"/>
+     </div>
+     <div class="col-xs-12 col-md-6 col-xl-6 p-0 column-2">
+      <div class="col-box">
+       <a href="#">
+        <img alt="" class="log1" src="https://microdatos.dane.gov.co/themes/nada/images/header/logo_anda.svg"/>
+       </a>
+       <a href="https://www.dane.gov.co/">
+        <img alt="" class="log2" src="https://www.dane.gov.co/files/images/logos/logo-dane-blanco.svg"/>
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <!-- page body -->
+  <div class="container">
+   <div class="row">
+    <div class="col-sm-12">
+     <ul class="share-bar">
+      <li>
+       <a href="http://www.facebook.com/sharer.php?u=https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos/&amp;t=Industria.&amp;src=sp" rel="nofollow" title="Compartir en Facebook">
+        <i class="fa fa-facebook fa-lg">
+        </i>
+       </a>
+      </li>
+      <li>
+       <a class="share" href="http://www.linkedin.com/cws/share?url=https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos/&amp;title=Industria.&amp;source=https://microdatos.dane.gov.co/index.php" title="Compartir con LinkedIn">
+        <i class="fa fa-linkedin fa-lg">
+        </i>
+       </a>
+      </li>
+      <li>
+       <a href="#" target="_blank" title="Share with Gmail">
+        <i class="fa fa-google fa-lg">
+        </i>
+       </a>
+      </li>
+      <li>
+       <a href="http://twitter.com/share?_=original_referer=https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos/&amp;text=Industria.&amp;url=https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos/" target="_blank" title="Compartir en Twitter">
+        <i class="fa fa-twitter fa-lg">
+        </i>
+       </a>
+      </li>
+     </ul>
+     <!--breadcrumbs -->
+     <ol class="breadcrumb wb-breadcrumb">
+      <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+       <span typeof="v:Breadcrumb">
+        <a href="https://microdatos.dane.gov.co/index.php/" property="v:title" rel="v:url">
+         PÃ¡gina principal
+        </a>
+        /
+       </span>
+       <span typeof="v:Breadcrumb">
+        <a href="https://microdatos.dane.gov.co/index.php/catalog" property="v:title" rel="v:url">
+         CatÃ¡logo Central de Datos
+        </a>
+        /
+       </span>
+       <span typeof="v:Breadcrumb">
+        <a class="active" href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos" property="v:title" rel="v:url">
+         Industria.
+        </a>
+       </span>
+      </div>
+     </ol>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-lg-12">
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-sm-3">
+     <div class="col-12">
+      <form autocomplete="off" id="search_form" method="get" name="search_form">
+       <input id="view" name="view" type="hidden" value="s"/>
+       <input id="ps" name="ps" type="hidden" value="100"/>
+       <input id="page" name="page" type="hidden" value="1"/>
+       <input id="repo" name="repo" type="hidden" value="Ind-Microdatos"/>
+       <input id="repo_ref" name="repo_ref" type="hidden" value="Ind-Microdatos"/>
+       <input id="sid" name="sid" type="hidden" value=""/>
+       <input id="_r" name="_r" type="hidden" value=""/>
+       <div class="refine-list filter-container">
+        <!--<div class="filter-container-heading refine-list">
+                <h3>Refine List</h3>
+            </div>-->
+        <div class="sidebar-filter wb-ihsn-sidebar-filter filter-box back-to-catalog">
+         <a class="btn-central-catalog back-to-catalog btn btn-primary btn-block" href="https://microdatos.dane.gov.co/index.php/catalog/central" title="Regresar al catÃ¡logo central">
+          <i aria-hidden="true" class="fa fa-chevron-circle-left">
+          </i>
+          CatÃ¡logo Central
+         </a>
+        </div>
+        <div class="sidebar-filter wb-ihsn-sidebar-filter filter-box back-to-catalog">
+         <a class="btn-central-catalog back-to-catalog btn btn-primary btn-block" href="https://microdatos.dane.gov.co/index.php/catalog/central/about" title="Regresar a las colecciones">
+          <i aria-hidden="true" class="fa fa-chevron-circle-left">
+          </i>
+          Colecciones
+         </a>
+        </div>
+        <!--keywords filter-->
+        <div class="sidebar-filter wb-ihsn-sidebar-filter filter-box keyword-search">
+         <h6 class="togglable">
+          <i class="fa fa-search pr-2">
+          </i>
+          Buscar por palabra clave
+         </h6>
+         <div class="search-by-keyword sidebar-filter-entries" id="search-by-keyword">
+          <div class="form-group study-search">
+           <!--<label for="formGroupExampleInput">in study description </label>-->
+           <input class="form-control" id="sk" maxlength="100" name="sk" placeholder="en descripciÃ³n del estudio" type="text" value=""/>
+          </div>
+          <div class="form-group variable-search">
+           <!--<label for="formGroupExampleInput2">in variable description</label>-->
+           <input class="form-control" id="vk" maxlength="100" name="vk" placeholder="en descripciÃ³n de variables" type="text" value=""/>
+          </div>
+          <button class="btn btn-primary btn-sm wb-btn btn-search" id="btnsearch" name="search" type="submit" value="search">
+           Buscar
+          </button>
+          <span>
+           <a class="btn btn btn-outline-primary btn-sm wb-btn-outline" href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos?reset=reset" id="reset">
+            <i class="fa fa-refresh">
+            </i>
+            Restablecer
+           </a>
+          </span>
+         </div>
+        </div>
+        <!--year filter-->
+        <!-- country filter-->
+        <!-- da filter -->
+        <!-- end da filter -->
+        <div class="sidebar-filter wb-ihsn-sidebar-filter filter-by-year filter-box" id="filter-by-access">
+         <h6 class="togglable">
+          <i class="fa fa-search pr-2">
+          </i>
+          Filtrar por AÃ±o
+         </h6>
+         <div class="sidebar-filter-entries">
+          <input type="hidden">
+           <p class="mb-0">
+            Mostrar operaciones estadÃ­sticas realizadas entre
+           </p>
+           <form>
+            <div class="form-group mb-0">
+             <input type="hidden">
+              <select class="form-control" id="from" name="from">
+               <option value="2025">
+                2025
+               </option>
+               <option value="2024">
+                2024
+               </option>
+               <option value="2023">
+                2023
+               </option>
+               <option value="2022">
+                2022
+               </option>
+               <option value="2021">
+                2021
+               </option>
+               <option value="2020">
+                2020
+               </option>
+               <option value="2019">
+                2019
+               </option>
+               <option value="2018">
+                2018
+               </option>
+               <option value="2017">
+                2017
+               </option>
+               <option value="2016">
+                2016
+               </option>
+               <option value="2015">
+                2015
+               </option>
+               <option value="2014">
+                2014
+               </option>
+               <option value="2013">
+                2013
+               </option>
+               <option value="2012">
+                2012
+               </option>
+               <option value="2011">
+                2011
+               </option>
+               <option value="2010">
+                2010
+               </option>
+               <option value="2009">
+                2009
+               </option>
+               <option value="2008">
+                2008
+               </option>
+               <option value="2007">
+                2007
+               </option>
+               <option value="2006">
+                2006
+               </option>
+               <option value="2005">
+                2005
+               </option>
+               <option value="2004">
+                2004
+               </option>
+               <option value="2003">
+                2003
+               </option>
+               <option value="2002">
+                2002
+               </option>
+               <option value="2001">
+                2001
+               </option>
+               <option value="2000">
+                2000
+               </option>
+               <option value="1999">
+                1999
+               </option>
+               <option value="1998">
+                1998
+               </option>
+               <option value="1997">
+                1997
+               </option>
+               <option value="1996">
+                1996
+               </option>
+               <option value="1995">
+                1995
+               </option>
+               <option value="1994">
+                1994
+               </option>
+               <option value="1993">
+                1993
+               </option>
+               <option value="1992">
+                1992
+               </option>
+               <option value="1991">
+                1991
+               </option>
+               <option value="1990">
+                1990
+               </option>
+               <option value="1989">
+                1989
+               </option>
+               <option value="1988">
+                1988
+               </option>
+               <option value="1987">
+                1987
+               </option>
+               <option value="1986">
+                1986
+               </option>
+               <option value="1985">
+                1985
+               </option>
+               <option value="1984">
+                1984
+               </option>
+               <option value="1983">
+                1983
+               </option>
+               <option value="1982">
+                1982
+               </option>
+               <option value="1981">
+                1981
+               </option>
+               <option value="1980">
+                1980
+               </option>
+               <option value="1979">
+                1979
+               </option>
+               <option value="1978">
+                1978
+               </option>
+               <option value="1977">
+                1977
+               </option>
+               <option value="1976">
+                1976
+               </option>
+               <option value="1975">
+                1975
+               </option>
+               <option value="1974">
+                1974
+               </option>
+               <option value="1973">
+                1973
+               </option>
+               <option value="1972">
+                1972
+               </option>
+               <option value="1971">
+                1971
+               </option>
+               <option selected="selected" value="1970">
+                1970
+               </option>
+              </select>
+             </input>
+            </div>
+            <p class="mb-0">
+             y
+            </p>
+            <div class="form-group">
+             <select class="form-control" id="to" name="to">
+              <option selected="selected" value="2025">
+               2025
+              </option>
+              <option value="2024">
+               2024
+              </option>
+              <option value="2023">
+               2023
+              </option>
+              <option value="2022">
+               2022
+              </option>
+              <option value="2021">
+               2021
+              </option>
+              <option value="2020">
+               2020
+              </option>
+              <option value="2019">
+               2019
+              </option>
+              <option value="2018">
+               2018
+              </option>
+              <option value="2017">
+               2017
+              </option>
+              <option value="2016">
+               2016
+              </option>
+              <option value="2015">
+               2015
+              </option>
+              <option value="2014">
+               2014
+              </option>
+              <option value="2013">
+               2013
+              </option>
+              <option value="2012">
+               2012
+              </option>
+              <option value="2011">
+               2011
+              </option>
+              <option value="2010">
+               2010
+              </option>
+              <option value="2009">
+               2009
+              </option>
+              <option value="2008">
+               2008
+              </option>
+              <option value="2007">
+               2007
+              </option>
+              <option value="2006">
+               2006
+              </option>
+              <option value="2005">
+               2005
+              </option>
+              <option value="2004">
+               2004
+              </option>
+              <option value="2003">
+               2003
+              </option>
+              <option value="2002">
+               2002
+              </option>
+              <option value="2001">
+               2001
+              </option>
+              <option value="2000">
+               2000
+              </option>
+              <option value="1999">
+               1999
+              </option>
+              <option value="1998">
+               1998
+              </option>
+              <option value="1997">
+               1997
+              </option>
+              <option value="1996">
+               1996
+              </option>
+              <option value="1995">
+               1995
+              </option>
+              <option value="1994">
+               1994
+              </option>
+              <option value="1993">
+               1993
+              </option>
+              <option value="1992">
+               1992
+              </option>
+              <option value="1991">
+               1991
+              </option>
+              <option value="1990">
+               1990
+              </option>
+              <option value="1989">
+               1989
+              </option>
+              <option value="1988">
+               1988
+              </option>
+              <option value="1987">
+               1987
+              </option>
+              <option value="1986">
+               1986
+              </option>
+              <option value="1985">
+               1985
+              </option>
+              <option value="1984">
+               1984
+              </option>
+              <option value="1983">
+               1983
+              </option>
+              <option value="1982">
+               1982
+              </option>
+              <option value="1981">
+               1981
+              </option>
+              <option value="1980">
+               1980
+              </option>
+              <option value="1979">
+               1979
+              </option>
+              <option value="1978">
+               1978
+              </option>
+              <option value="1977">
+               1977
+              </option>
+              <option value="1976">
+               1976
+              </option>
+              <option value="1975">
+               1975
+              </option>
+              <option value="1974">
+               1974
+              </option>
+              <option value="1973">
+               1973
+              </option>
+              <option value="1972">
+               1972
+              </option>
+              <option value="1971">
+               1971
+              </option>
+              <option value="1970">
+               1970
+              </option>
+             </select>
+            </div>
+           </form>
+          </input>
+         </div>
+        </div>
+       </div>
+      </form>
+     </div>
+     <script type="text/javascript">
+      //min/max years
+var years = {'from': '2025', 'to': '1970'};
+     </script>
+    </div>
+    <div class="col-sm-9">
+     <script>
+      console.table({"id":"40","pid":null,"repositoryid":"Ind-Microdatos","title":"Industria.","url":null,"organization":null,"email":null,"country":null,"status":null,"surveys_found":null,"changed":"1680208502","type":null,"short_text":"Brinda indicadores b\u00e1sicos de la industria nacional como lo son: el empleo, la producci\u00f3n, el salario, horas trabajadas entre otros aspectos destacados.","long_text":"\n<p>Brinda indicadores b\u00e1sicos de la industria nacional como lo son: el empleo, la producci\u00f3n, el salario, horas trabajadas entre otros aspectos destacados. Esto con el objetivo de brindar Para proporcionar herramientas para el an\u00e1lisis de tendencias en cuanto a sectores y comportamiento laboral. Se realizan muestras y encuestas con periodicidad anual, trimestral y mensual con cobertura geogr\u00e1fica nacional y regional. Tambi\u00e9n encontrar\u00e1; los sistemas de consulta de algunas de estas investigaciones y los archivos de las publicaciones de fechas anteriores.<\/p>\n","thumbnail":"files\/images\/industria2.png","weight":"3","ispublished":"1","section":"1","group_da_public":"0","group_da_licensed":"0"})
+     </script>
+     <div class="-collectaboution">
+      <div class="body">
+       <h3 style="color:#B31550">
+        Industria.
+       </h3>
+      </div>
+      <div class="repository-container nada-pagination">
+       <div class="body">
+        <p>
+         Brinda indicadores bÃ¡sicos de la industria nacional como lo son: el empleo, la producciÃ³n, el salario, horas trabajadas entre otros aspectos destacados. Esto con el objetivo de brindar Para proporcionar herramientas para el anÃ¡lisis de tendencias en cuanto a sectores y comportamiento laboral. Se realizan muestras y encuestas con periodicidad anual, trimestral y mensual con cobertura geogrÃ¡fica nacional y regional. TambiÃ©n encontrarÃ¡; los sistemas de consulta de algunas de estas investigaciones y los archivos de las publicaciones de fechas anteriores.
+        </p>
+       </div>
+      </div>
+     </div>
+     <div id="surveys">
+      <div class="active-filters-container">
+       <div class="row mb-3">
+        <div class="col-12 col-md-6 col-lg-8 text-center text-md-left">
+         <div class="search-count">
+          EncontrÃ³
+          <b>
+           27
+          </b>
+          operaciones estadÃ­sticas de
+          <b>
+           27
+          </b>
+         </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mt-2 mt-md-0 text-center text-md-right">
+         <div class="filter-action-bar">
+          <span>
+           <a class="btn btn btn-outline-success btn-sm" href="https://microdatos.dane.gov.co/index.php/catalog/export/print?ps=5000&amp;sort_by=title&amp;collection[]=Ind-Microdatos&amp;view=s&amp;from=1970&amp;to=2025" target="_blank">
+            <i class="fa fa-list">
+            </i>
+           </a>
+           <a class="btn btn btn-outline-success btn-sm" href="https://microdatos.dane.gov.co/index.php/catalog/export/csv?ps=5000&amp;sort_by=title&amp;collection[]=Ind-Microdatos&amp;view=s&amp;from=1970&amp;to=2025" target="_blank">
+            <i class="fa fa-file-excel-o">
+            </i>
+           </a>
+          </span>
+         </div>
+        </div>
+       </div>
+       <div class="active-filters">
+       </div>
+      </div>
+      <input id="sort_order" type="hidden" value=""/>
+      <input id="sort_by" type="hidden" value="title"/>
+      <div class="sort-results-by catalog-sort-links" id="sort-results-by">
+       <div class="row">
+        <div class="col-12 col-md-3 col-lg-3 text-center text-lg-left">
+         <small>
+          Ordenar resultados por:
+         </small>
+        </div>
+        <div class="col-12 col-md-9 col-lg-9 text-center text-lg-left">
+         <small>
+          <span>
+           <a data-sort_by="proddate" data-sort_order="asc" href="https://microdatos.dane.gov.co/index.php/catalog/?sort_by=proddate&amp;sort_order=asc&amp;">
+            AÃ±o
+           </a>
+           |
+           <span>
+            <a class="selected" data-sort_by="title" data-sort_order="desc" href="https://microdatos.dane.gov.co/index.php/catalog/?sort_by=title&amp;sort_order=desc&amp;">
+             TÃ­tulo
+             <i class="fa fa-caret-up mr-2">
+             </i>
+            </a>
+           </span>
+           |
+           <span>
+            <a data-sort_by="popularity" data-sort_order="asc" href="https://microdatos.dane.gov.co/index.php/catalog/?sort_by=popularity&amp;sort_order=asc&amp;">
+             Popularidad
+            </a>
+           </span>
+          </span>
+         </small>
+        </div>
+       </div>
+       <!-- /row  -->
+      </div>
+      <div class="nada-pagination">
+       <div class="row mt-3 mb-3 d-flex align-items-lg-center">
+        <div class="col-12 col-md-3 col-lg-5 text-center text-md-left mb-2 mb-md-0">
+         Mostrando
+         <b>
+          1-27
+         </b>
+         de
+         <b>
+          27
+         </b>
+         operaciones estadÃ­sticas
+        </div>
+        <div class="col-12 col-md-9 col-lg-7 d-flex justify-content-center justify-content-lg-end text-center">
+         <nav aria-label="Page navigation">
+         </nav>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/687" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/687" title="Encuesta Ambiental Industrial - EAI - 2012 - 2013 - 2014">
+           Encuesta Ambiental Industrial - EAI - 2012 - 2013 - 2014
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2012-2015
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Oct 07, 2020
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Oct 07, 2020
+          </span>
+          <span>
+           views: 83312
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/686" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/686" title="Encuesta Ambiental Industrial - EAI - 2015">
+           Encuesta Ambiental Industrial - EAI - 2015
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2014-2015
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Oct 02, 2020
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Oct 02, 2020
+          </span>
+          <span>
+           views: 78603
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/685" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/685" title="Encuesta Ambiental Industrial - EAI - 2016">
+           Encuesta Ambiental Industrial - EAI - 2016
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2017
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Oct 01, 2020
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Oct 01, 2020
+          </span>
+          <span>
+           views: 75243
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/683" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/683" title="Encuesta Ambiental Industrial - EAI - 2018">
+           Encuesta Ambiental Industrial - EAI - 2018
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2019
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Sep 25, 2020
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Sep 25, 2020
+          </span>
+          <span>
+           views: 114806
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/723" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/723" title="Encuesta Ambiental Industrial - EAI - 2019">
+           Encuesta Ambiental Industrial - EAI - 2019
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2021
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Feb 25, 2022
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Feb 25, 2022
+          </span>
+          <span>
+           views: 37007
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/746" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/746" title="Encuesta Ambiental Industrial - EAI - 2020">
+           Encuesta Ambiental Industrial - EAI - 2020
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2022
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Jul 28, 2022
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Jul 28, 2022
+          </span>
+          <span>
+           views: 55280
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/805" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/805" title="Encuesta Ambiental Industrial - EAI - 2021">
+           Encuesta Ambiental Industrial - EAI - 2021
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2022
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Oct 10, 2023
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Oct 10, 2023
+          </span>
+          <span>
+           views: 42246
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/838" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/838" title="Encuesta Ambiental Industrial - EAI - 2022">
+           Encuesta Ambiental Industrial - EAI - 2022
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2023
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Oct 16, 2024
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Oct 16, 2024
+          </span>
+          <span>
+           views: 28104
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/563" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/563" title="Encuesta Anual Manufacturera â EAM - 1992 A 1994">
+           Encuesta Anual Manufacturera â EAM - 1992 A 1994
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    1993-1995
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Jun 25, 2018
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Dec 24, 2018
+          </span>
+          <span>
+           views: 375443
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/492" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/492" title="Encuesta Anual Manufacturera â EAM - 1995 A 1999">
+           Encuesta Anual Manufacturera â EAM - 1995 A 1999
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    1995-1999
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Aug 10, 2017
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Jan 09, 2019
+          </span>
+          <span>
+           views: 337493
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/494" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/494" title="Encuesta Anual Manufacturera â EAM - 2000 A 2007">
+           Encuesta Anual Manufacturera â EAM - 2000 A 2007
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2000-2007
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Aug 10, 2017
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Dec 15, 2020
+          </span>
+          <span>
+           views: 728466
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/493" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/493" title="Encuesta Anual Manufacturera â EAM - 2008 A 2012">
+           Encuesta Anual Manufacturera â EAM - 2008 A 2012
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2008-2012
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Aug 10, 2017
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Jan 30, 2019
+          </span>
+          <span>
+           views: 616387
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/491" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/491" title="Encuesta Anual Manufacturera â EAM - 2013 A 2015">
+           Encuesta Anual Manufacturera â EAM - 2013 A 2015
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2013-2015
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Aug 10, 2017
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Jan 30, 2019
+          </span>
+          <span>
+           views: 407604
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/523" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/523" title="Encuesta Anual Manufacturera â EAM - 2016 - 2017">
+           Encuesta Anual Manufacturera â EAM - 2016 - 2017
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2016-2017
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Jan 31, 2018
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Jan 31, 2019
+          </span>
+          <span>
+           views: 343470
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/650" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/650" title="Encuesta Anual Manufacturera â EAM - 2018">
+           Encuesta Anual Manufacturera â EAM - 2018
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2018
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Dec 30, 2019
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Oct 01, 2021
+          </span>
+          <span>
+           views: 121439
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/694" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/694" title="Encuesta Anual Manufacturera â EAM - 2019">
+           Encuesta Anual Manufacturera â EAM - 2019
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2020
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Dec 29, 2020
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Dec 29, 2020
+          </span>
+          <span>
+           views: 107514
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/724" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/724" title="Encuesta Anual Manufacturera â EAM - 2020">
+           Encuesta Anual Manufacturera â EAM - 2020
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2021
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Mar 02, 2022
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Mar 02, 2022
+          </span>
+          <span>
+           views: 71216
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/802" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/802" title="Encuesta Anual Manufacturera â EAM - 2021.">
+           Encuesta Anual Manufacturera â EAM - 2021.
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2022
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Jul 31, 2023
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Jul 31, 2023
+          </span>
+          <span>
+           views: 49245
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/836" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/836" title="Encuesta Anual Manufacturera â EAM - 2022.">
+           Encuesta Anual Manufacturera â EAM - 2022.
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            Departamento Administrativo Nacional de EstadÃ­stica - DANE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Aug 01, 2024
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Jun 18, 2025
+          </span>
+          <span>
+           views: 33131
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/529" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/529" title="Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria  - 2007-2008">
+           Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria  - 2007-2008
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2007
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Feb 12, 2018
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Mar 05, 2020
+          </span>
+          <span>
+           views: 120366
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/530" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/530" title="Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria  - 2009-2010">
+           Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria  - 2009-2010
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2011
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Feb 12, 2018
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Feb 20, 2020
+          </span>
+          <span>
+           views: 113720
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/571" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/571" title="Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria II - 2003 - 2004">
+           Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria II - 2003 - 2004
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2005
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Sep 20, 2018
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Sep 20, 2018
+          </span>
+          <span>
+           views: 582922
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/567" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/567" title="Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria III - 2005 - 2006">
+           Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria III - 2005 - 2006
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2007
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Aug 16, 2018
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Aug 27, 2018
+          </span>
+          <span>
+           views: 387430
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/531" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/531" title="Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria VI - 2011 - 2012">
+           Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria VI - 2011 - 2012
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2011-2012
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Feb 12, 2018
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Feb 20, 2020
+          </span>
+          <span>
+           views: 108382
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/532" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/532" title="Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria VII - 2013 - 2014">
+           Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria VII - 2013 - 2014
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2015
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Feb 12, 2018
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Feb 20, 2020
+          </span>
+          <span>
+           views: 141629
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/553" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/553" title="Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria VIII - 2015 - 2016">
+           Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica -  EDIT-  Industria VIII - 2015 - 2016
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2017
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: May 04, 2018
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: May 10, 2018
+          </span>
+          <span>
+           views: 185933
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="survey-row" data-url="https://microdatos.dane.gov.co/index.php/catalog/651" title="View study">
+       <div class="row">
+        <div class="col-2 col-lg-1">
+         <i class="icon-da icon-da-direct" title="Acceso directo a los datos">
+         </i>
+        </div>
+        <div class="col-10 col-lg-11">
+         <h5 class="title">
+          <a href="https://microdatos.dane.gov.co/index.php/catalog/651" title="Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica - EDIT - Industria - 2017 - 2018">
+           Encuesta de Desarrollo e InnovaciÃ³n TecnolÃ³gica - EDIT - Industria - 2017 - 2018
+          </a>
+         </h5>
+         <div class="study-country">
+          Colombia,                                    2019
+         </div>
+         <div class="sub-title">
+          <div>
+           <span class="study-by">
+            DirecciÃ³n de MetodologÃ­a y ProducciÃ³n EstadÃ­stica - DIMPE
+           </span>
+          </div>
+          <div class="owner-collection">
+           ColecciÃ³n:
+           <a href="https://microdatos.dane.gov.co/index.php/catalog/Ind-Microdatos">
+            Industria.
+           </a>
+          </div>
+         </div>
+         <div class="survey-stats">
+          <span>
+           Creado el: Jan 08, 2020
+          </span>
+          <span>
+           Ãltima modificaciÃ³n: Feb 14, 2020
+          </span>
+          <span>
+           views: 185859
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="nada-pagination border-top-none">
+       <div class="row mt-3 mb-3 d-flex align-items-lg-center">
+        <div class="col-12 col-md-3 col-lg-5 text-center text-md-left mb-2 mb-md-0">
+         Mostrando
+         <b>
+          1-27
+         </b>
+         de
+         <b>
+          27
+         </b>
+         operaciones estadÃ­sticas
+        </div>
+        <div class="col-12 col-md-9 col-lg-7 d-flex justify-content-center justify-content-lg-end text-center">
+         <nav aria-label="Page navigation">
+         </nav>
+        </div>
+       </div>
+      </div>
+      <div class="items-per-page light switch-page-size" id="items-per-page">
+       <small>
+        Seleccionar el nÃºmero de registros a mostrar por pÃ¡gina:
+        <span class="nada-btn">
+         15
+        </span>
+        <span class="nada-btn">
+         30
+        </span>
+        <span class="nada-btn">
+         50
+        </span>
+        <span class="nada-btn">
+         100
+        </span>
+       </small>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- page footer -->
+  <!-- footer -->
+  <div id="footer">
+   <!-- contedores de footer se pueden incluir los que sean necesarios. de debe crear una clase de flexbox para el contenedor principal y a ese elementos los atribuitos que se deseen para su alineacion y posicionamiento la clase creada es content_footerinfo, que esta en custom.css. Esta nueva libreria de flexbox esta inlcuida dentro del header del archivo y puede ser mezclado con boostrap sin problemas-->
+   <div class="container-fluid bg-footer footer-enc content_footerinfo">
+    <div class="content-footer_dane container-fluid row" style="">
+     <div class="item-info_dane col-12 col-lg-3">
+      <div class="icon-position">
+       <img src="https://microdatos.dane.gov.co/themes/nada/images/call-icon.png"/>
+      </div>
+      <div class="text-info_dane">
+       <h5>
+        CALL CENTER
+       </h5>
+       <p>
+        <strong>
+         Conmutador:
+        </strong>
+        (+57 601) 597 8300 Ã³ (+57 601) 597 8398 /
+        <strong>
+         <br/>
+         LÃ­nea gratuita de
+                      atenciÃ³n:
+        </strong>
+        01 8000
+                   912002
+       </p>
+      </div>
+     </div>
+     <!--espacio 2-->
+     <div class="col-12 col-lg-3 item-info_dane">
+      <div class="icon-position">
+       <img src="https://microdatos.dane.gov.co/themes/nada/images/clock-icon.png"/>
+      </div>
+      <div class="text-info_dane">
+       <h5>
+        HORARIO DE ATENCIÃN
+       </h5>
+       <p>
+        Lunes a viernes 8:00 a 17:00
+       </p>
+      </div>
+     </div>
+     <!--espacio 3-->
+     <div class="col-12 col-lg-3 item-info_dane" style="border: none;">
+      <div class="icon-position">
+       <img src="https://microdatos.dane.gov.co/themes/nada/images/location-icon.png"/>
+      </div>
+      <div class="text-info_dane">
+       <h5>
+        DIRECCIÃN
+       </h5>
+       <p>
+        Carrera 59 No. 26-70 Interior I - CAN /
+        <strong>
+         BogotÃ¡ D.C. - Colombia
+        </strong>
+       </p>
+       <p>
+        <strong>
+        </strong>
+       </p>
+      </div>
+     </div>
+     <div class="logo-gobierno col-12 col-lg-3">
+      <!-- <img class="pull-right img-fluid hidden-xs mx-auto"
+                src="https://www.dane.gov.co/files/images/nuevaImg/logo-gobierno.png" style="width: 70%; "> -->
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
