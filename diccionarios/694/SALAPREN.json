@@ -1,0 +1,54 @@
+{
+  "file_id": "F15",
+  "vid": "V5574",
+  "name": "SALAPREN",
+  "var_intrvl": "discrete",
+  "var_dcml": "0",
+  "var_wgt": null,
+  "var_is_wgt": null,
+  "loc_start_pos": "2524",
+  "loc_end_pos": "2530",
+  "loc_width": "7",
+  "loc_rec_seg_no": "1",
+  "labl": "Salarios del personal aprendiz",
+  "var_imputation": null,
+  "var_security": null,
+  "var_resp_unit": null,
+  "var_analysis_unit": null,
+  "var_qstn_preqtxt": null,
+  "var_qstn_qstnlit": "Salarios del personal aprendiz",
+  "var_qstn_postqtxt": null,
+  "var_qstn_ivuinstr": null,
+  "var_universe": null,
+  "var_universe_clusion": null,
+  "var_sumstat": [
+    {
+      "value": "0",
+      "type": "vald",
+      "wgtd": null
+    },
+    {
+      "value": "0",
+      "type": "invd",
+      "wgtd": null
+    }
+  ],
+  "var_txt": null,
+  "var_catgry": [],
+  "var_codinstr": null,
+  "var_concept": [],
+  "var_format": {
+    "type": "numeric",
+    "schema": "other",
+    "category": null,
+    "name": null
+  },
+  "var_notes": null,
+  "var_val_range": {
+    "min": null,
+    "max": null
+  },
+  "fid": "F15",
+  "sid": "694",
+  "survey_idno": "DANE-DIMPE-EAM-2019"
+}

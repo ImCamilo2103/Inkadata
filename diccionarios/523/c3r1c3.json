@@ -1,0 +1,54 @@
+{
+  "file_id": "F12",
+  "vid": "V4412",
+  "name": "c3r1c3",
+  "var_intrvl": "contin",
+  "var_dcml": "0",
+  "var_wgt": null,
+  "var_is_wgt": null,
+  "loc_start_pos": "200",
+  "loc_end_pos": "207",
+  "loc_width": "8",
+  "loc_rec_seg_no": "1",
+  "labl": "Total Salario Integral para el personal permanente",
+  "var_imputation": null,
+  "var_security": "El acceso a microdatos y Mam-up se considera como de tratamiento especial respecto a la reserva estadística por tanto estará sujeto a la reglamentación que para el efecto defina el Comité de Aseguramiento de la reserva estadística. Resolución 173 de 2008",
+  "var_resp_unit": "El representante legal del establecimiento industrial",
+  "var_analysis_unit": null,
+  "var_qstn_preqtxt": null,
+  "var_qstn_qstnlit": "Total Salario Integral para el personal permanente",
+  "var_qstn_postqtxt": null,
+  "var_qstn_ivuinstr": null,
+  "var_universe": "Está conformado por establecimientos industriales residentes en territorio nacional con 10 o más personas ocupadas y/o un valor de producción dado para el año de referencia.",
+  "var_universe_clusion": "I",
+  "var_sumstat": [
+    {
+      "value": "0",
+      "type": "vald",
+      "wgtd": null
+    },
+    {
+      "value": "0",
+      "type": "invd",
+      "wgtd": null
+    }
+  ],
+  "var_txt": null,
+  "var_catgry": [],
+  "var_codinstr": null,
+  "var_concept": [],
+  "var_format": {
+    "type": "numeric",
+    "schema": "other",
+    "category": null,
+    "name": null
+  },
+  "var_notes": null,
+  "var_val_range": {
+    "min": "0",
+    "max": "20837493"
+  },
+  "fid": "F12",
+  "sid": "523",
+  "survey_idno": "DANE-DIMPE-EAM-2016"
+}
