@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objetivos SMART</title>
+
+  <!-- Estilos base -->
+  <link rel="stylesheet" href="css/Datandes1.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- MathJax para fórmulas -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Estilo para evitar desbordes de MathJax -->
+  <style>
+    mjx-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      display: block;
+      text-align: center;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1 class="project-title">INKADATA ECONOMICS</h1>
+      <p class="project-subtitle">Objetivos SMART</p>
+
+      <div class="project-info">
+        <div class="project-card">
+          <i class="fas fa-fire"></i>
+          <h3>Objetivos del Proyecto</h3>
+          <p>
+            Diseñar un sistema de análisis estadístico basado en datos oficiales del DANE para evaluar el comportamiento económico del 
+            sector industrial colombiano, con énfasis en indicadores clave de productividad, valorización y empleo, usando herramientas 
+            modernas de análisis de datos.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <i class="fas fa-database"></i>
+          <h3>Fuentes de Datos</h3>
+          <p>
+            Encuesta Anual Manufacturera (EAM) del DANE.
+            Esta encuesta recopila información detallada de empresas del sector manufacturero colombiano: producción, ventas, 
+            personal ocupado, salarios, inventarios, consumo de energía, valorizaciones, entre otros.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Métricas Clave</h3>
+          <p>La métrica clave es la variación de la eficiencia, definida como:</p>
+          <div style="text-align: center; color: #2f855a;">
+            $$\text{Eficiencia} = \frac{\text{Valor agregado bruto}}{\text{Total de personal ocupado}}$$
+          </div>
+          <p>Analizada por empresa, subsector o región.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="smart-tab">
+    <h2 class="section-title"><i class="fas fa-bullseye"></i> Objetivos SMART para Inkadata Economics</h2>
+    <p style="margin-bottom: 25px; color: #f4f4f4; font-size: 1.1rem; text-align: center;">
+      Este documento define con claridad los objetivos fundamentales de Inkadata Economics basados en el marco SMART,
+      enfocados en el contexto del DANE.
+    </p>
+
+    <div class="container">
+      <div class="smart-card specific">
+        <h3 class="smart-title"><i class="fas fa-crosshairs"></i> Específico</h3>
+        <ul class="question-list">
+          <li class="question-item">Aplicar análisis exploratorio y modelado de series temporales sobre variables clave de la EAM del DANE 
+            (2016, 2019, 2022), como producción, ventas y personal ocupado, con el fin de pronosticar el comportamiento para el año 2025. 
+            El análisis será realizado en Python usando pandas, statsmodels y visualizaciones con matplotlib. La entrega se realizará antes del 
+            28 de julio de 2025.</li>
+          <li class="question-item">Analizar y cuantificar la evolución de la participación laboral por género en el sector manufacturero, 
+            utilizando los datos de la EAM (2016, 2019, 2022). El análisis se realizará con Python y R, empleando gráficos comparativos, 
+            tasas de crecimiento y tablas resumen, con entrega final antes del 22 de julio de 2025.</li>
+        </ul>
+      </div>
+
+      <div class="smart-card measurable">
+        <h3 class="smart-title"><i class="fas fa-ruler-combined"></i> Medible</h3>
+        <ul class="question-list">
+          <li class="question-item">Comparar los microdatos de la EAM del DANE correspondientes a los años 2016, 2019 y 2022, utilizando herramientas 
+            estadísticas y probabilísticas (medidas de tendencia central, dispersión y modelos de regresión), para construir un modelo 
+            de pronóstico económico para el año 2025. Se considerará cumplido este objetivo cuando se obtengan indicadores de predicción claros 
+            (media, intervalo, proyección gráfica) y se entregue un informe visual y reproducible antes del 28 de julio de 2025.</li>
+        </ul>
+      </div>
+
+      <div class="smart-card achievable">
+        <h3 class="smart-title"><i class="fas fa-hands-helping"></i> Alcanzable</h3>
+        <ul class="question-list">
+          <li class="question-item">Diseñar un dashboard interactivo en Tableau que permita comparar variables clave de los años 2016, 2019 y 2022 del 
+            microdato EAM del DANE, facilitando la toma de decisiones mediante filtros dinámicos por año, sector económico y género. 
+            El dashboard se construirá con base en el análisis estadístico previo y estará finalizado antes del 30 de julio de 2025, 
+            con documentación técnica incluida en el repositorio.</li>
+        </ul>
+      </div>
+
+      <div class="smart-card relevant">
+        <h3 class="smart-title"><i class="fas fa-check-circle"></i> Relevante</h3>
+        <ul class="question-list">
+          <li class="question-item">Este proyecto tiene como propósito aplicar los conocimientos adquiridos en estadística, programación y visualización 
+            de datos mediante el análisis del conjunto de microdatos económicos de la EAM (DANE), para consolidar habilidades prácticas y 
+            demostrar la evolución técnica como analista de datos.</li>
+        </ul>
+      </div>
+
+      <div class="smart-card time-bound">
+        <h3 class="smart-title"><i class="fas fa-clock"></i> Con Tiempo Definido</h3>
+        <ul class="question-list">
+          <li class="question-item">El proyecto se iniciará de inmediato con la aplicación práctica de conocimientos adquiridos en estadística, 
+            Python, R y visualización de datos, priorizando una ejecución eficiente en el menor tiempo posible sin comprometer la calidad analítica.</li>
+        </ul>
+      </div>
+
+      <div class="stakeholder-box">
+        <h3 class="smart-title"><i class="fas fa-user-tie"></i> Stakeholder Responsable</h3>
+        <p style="color: #f4f4f4; padding-left: 45px; margin-top: 10px; font-size: 1.1rem;">
+          Camilo Garzón M. – Líder del Proyecto Inkadata Economics
+        </p>
+      </div>
+
+      <footer>
+        <p>Documento de Planificación para Inkadata Economics | Objetivos SMART</p>
+        <p>© 2025 DatAndes Analytics | Todos los derechos reservados</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Animación en las tarjetas de proyecto
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+    });
+  </script>
+</body>
+</html>
