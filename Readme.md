@@ -92,6 +92,12 @@ python  scripts/04_descarga_dataset.py
 python  scripts/05_descarga_variables_datasets.py
 python  scripts/06_Archivo_dicionarios.py
 python  scripts/07_validacion-dicionario.py
+python  scripts/08_clasificacion_diccionarios.py
+sql     scripts/09_creacion_database.sql
+python  scripts/10_limpieza_datos_raw.py
+python  scripts/11_limpieza _datos.py
+python  scripts/12_cargar_datos_dbraw.py
+python  scripts/13_crear_tablas.py
 ```
 ---
 
