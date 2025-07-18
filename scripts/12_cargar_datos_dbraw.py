@@ -2,50 +2,59 @@ import hidden
 import pandas as pd
 import psycopg2 as pg
 
+# Conexión a PostgreSQL
 secrets = hidden.secrets()
-conn = pg.connect(host = secrets['host'],
-                  port = secrets['port'],
-                  database = secrets['database'],
-                  user = secrets['user'],
-                  password = secrets['pass'])
+conn = pg.connect(host=secrets['host'],
+                  port=secrets['port'],
+                  database=secrets['database'],
+                  user=secrets['user'],
+                  password=secrets['pass'])
 cur = conn.cursor()
 
 años = [2016, 2019, 2022]
-feam = '../Inkadata/data/cleaned/eam{}.csv'
+feam = '../Inkadata/data/cleaned/eam{}.xlsx'
 
 typemap = {
     'int64': 'BIGINT',
     'float64': 'FLOAT',
-    'object': 'TEXT'
+    'object': 'TEXT',
+    'bool': 'BOOLEAN',
+    'datetime64[ns]': 'TIMESTAMP',
 }
 
 for año in años:
     print(f'📚 Inicia el {año}...')
-    eam = pd.read_csv(feam.format(año), low_memory=False, header=0)
 
-    columnasql = []
+    eam = pd.read_excel(feam.format(año), dtype={'nordemp': str, 'nordest': str, 'ciiu4': str}, header=0)
+    eam.columns =[col.lower() for col in eam.columns]
+    team = f'eam{año}_raw'
+    
+    colsql = []
     for name, type in zip(eam.columns, eam.dtypes):
-        dtype_str = str(type)
-        pg_type = typemap.get(dtype_str, 'TEXT')
-        columnasql.append(F'"{name}" {pg_type}')
+        dtpe = str(type)
+        pgtype = typemap.get(dtpe, 'TEXT')
+        colsql.append(f'{name} {pgtype}')
         
-    print(f'🧱 Definición SQL para eam{año}:')
-    print(',\n'.join(columnasql))
+    print(f'🧱 Definición SQL para {team}:')
+    print(',\n'.join(colsql))
 
-    sql = f'DROP TABLE IF EXISTS eam{año}_raw;'
+    sql = f'DROP TABLE IF EXISTS {team} CASCADE;'
     cur.execute(sql)
 
-    columnastr = ', '.join(columnasql)
-    sql = f'CREATE TABLE eam{año}_raw(id SERIAL, {columnastr});'
+    placeholder = ','.join(colsql)
+    sql = f'''CREATE TABLE {team}(
+        id SERIAL, {placeholder});'''
     cur.execute(sql)
 
-    cols = ', '.join([f'"{col}"' for col in eam.columns])
-    values = ', '.join(['%s'] *len(eam.columns))
-    sql = f'INSERT INTO eam{año}_raw({cols}) VALUES ({values})'
-
+    cols = ', '.join([f'{col}' for col in eam.columns])
+        
+    values = ', '.join(['%s'] * len(eam.columns))
+    sql = f'''INSERT INTO {team}(
+        {cols})
+        VALUES({values})'''
+    
     for row in eam.itertuples(index=False, name=None):
         cur.execute(sql, row)
-
     print(f'🪧 Tabla eam{año}_raw. Fue creada con exito!')
 
 conn.commit()
