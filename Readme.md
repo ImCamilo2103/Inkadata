@@ -23,6 +23,7 @@
 - [🎯 Objetivos](#-objetivos)
 - [🗂️ Estructura del Proyecto](#️-estructura-del-proyecto)
 - [🚀 Primeros Pasos](#-primeros-pasos)
+- [🧠 Tecnologías Utilizadas](#-tecnologías-utilizadas)
 - []()
 - [🎨 Paleta de colores DatAndes](#-Paleta-de-colores-DatAndes)
 - [🧑‍🤝‍🧑 Stakeholders del Proyecto](#-Stakeholders-del-Proyecto)
@@ -98,7 +99,26 @@ python  scripts/10_limpieza_datos_raw.py
 python  scripts/11_limpieza _datos.py
 python  scripts/12_cargar_datos_dbraw.py
 python  scripts/13_crear_tablas.py
+python  scripts/14_insert_auxiliares_y_empresas.py
+python  scripts/insert_3nf.py
 ```
+---
+
+## 🧠 Tecnologías Utilizadas
+
+*  **Python** 🐍 (Pandas)
+* **PostgreSQL** 🐘
+* **SQL** para consultas analíticas
+* **Git + GitHub** para control de versiones
+* **Tableau / Power BI** para dashboards
+
+---
+
+## Imagen de Tablas Normalizadas
+
+![Modelo de Tablas Normalizadas](imagenes/tablas_normalizadas.jpg)  
+*Modelo relacional en 3NF para almacenar datos.*
+
 ---
 
 ### 🎨 Paleta de colores DatAndes
