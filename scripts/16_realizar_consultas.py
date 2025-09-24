@@ -1,0 +1,108 @@
+import hidden
+import pandas as pd
+import psycopg2 as pg
+
+secrets = hidden.secrets()
+
+file = 'C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/diccionarios/clasificacion_dict.csv'
+dicv = pd.read_csv(file)
+
+años = {
+    523 : 2016,
+    694 : 2019,
+    836 : 2022
+}
+
+conn = pg.connect(
+    host = secrets['host'],
+    port = secrets['port'],
+    database = secrets['database'],
+    user = secrets['user'],
+    password = secrets['pass']
+)
+cur = conn.cursor()
+
+hm = dicv[dicv['labl'].str.contains('Hombre|Mujer')]
+hm['años'] = hm['sid'].map(años)
+hm['años'] = hm['años'].astype(str)
+hm['ntable'] = hm['categoria'] + hm['años']
+hm['ntable'] = hm['ntable'].str.lower().str.replace(" ", "_")
+hm = hm.copy()
+
+table = []
+year = []
+alias = {}
+variables = {
+    'ntabla' : ['ciiu4', 'ciiu4', 'dpto', 'dpto'],
+    'variable' : ['clase', 'descripcion', 'codigo', 'nombre'],
+}
+
+for año in hm['años']:
+    if not año in year:
+        year.append(año)
+
+print('🕵🏻 estos son los años generados:', year)
+
+for part in hm['ntable']:
+    if not part in table:
+        table.append(part)
+
+print('📚 las tablas que se necesitan son', table)
+
+joins ={
+    'ntabla' : ['dpto', 'ciiu4'],
+    'siglas' : ['dp', 'c4']
+    }
+
+for ann in year:
+    eam = f'eam{ann}'
+
+    sql = f'''DROP VIEW IF EXISTS {eam}'''
+    cur.execute(sql)
+
+    print(f'🆑 vista {eam}, eliminada con exito')
+
+    for tab in table:
+        if tab.endswith(str(ann)):
+            if tab in hm['ntable'].values:
+                joins['ntabla'].append(tab)
+                joins['siglas'].append(tab[:2] + f'{ann}')
+                variables['ntabla'].extend(hm[hm['ntable'] == tab]['ntable'].tolist())
+                variables.setdefault('variable', []).extend(hm[hm['ntable'] == tab]['variable'].tolist())
+                df_variables = pd.DataFrame(variables)
+                dicc_siglas = dict(zip(joins['ntabla'], joins['siglas']))
+                df_variables['siglas'] = df_variables['ntabla'].map(dicc_siglas)       
+
+                df_variables = df_variables.sort_values(['ntabla', 'variable'])
+
+for anio in year:
+    eam = f'eam{anio}'
+    cond_anio = df_variables['ntabla'].str.endswith(str(anio))
+    df_year = df_variables[cond_anio].sort_values(['ntabla'])
+    cols = ", ".join(df_year['siglas'] + "." + df_year['variable'])
+    
+    print(f"🪧 Inicia creacion de la vista: {eam}")
+    
+    sql = f'''CREATE VIEW {eam} AS
+            SELECT
+                e{anio}.nordemp,
+                c4.descripcion,
+                dp.nombre,
+                {cols}
+            FROM
+                empresas{anio} e{anio}
+            JOIN dpto dp ON dp.id = e{anio}.dpto
+            JOIN ciiu4 c4 ON c4.id = e{anio}.ciiu4
+            JOIN otros{anio} ot{anio} ON ot{anio}.empresas_id = e{anio}.id
+            JOIN producción{anio} pr{anio} ON pr{anio}.empresas_id = e{anio}.id
+            JOIN sueldos_y_prestaciones{anio} su{anio} ON su{anio}.empresas_id = e{anio}.id
+            JOIN temporal{anio} te{anio} ON te{anio}.empresas_id = e{anio}.id;'''
+    cur.execute(sql)
+
+    print(f"🪧 Se Crea exitosamente la vista {eam}")
+
+conn.commit()
+cur.close()
+conn.close()
+
+print("🆑 Se cierra la conexion con exito")
