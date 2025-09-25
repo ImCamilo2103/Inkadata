@@ -14,7 +14,7 @@ conn = pg.connect(
 cur = conn.cursor()
 
 años = [2016, 2019, 2022]
-fdict = '../Inkadata/diccionarios/clasificacion_dict.csv'
+fdict = 'C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/diccionarios/clasificacion_dict.csv'
 clasificacion = pd.read_csv(fdict, low_memory=False)
 
 adic = {523: 2016, 694:2019, 836:2022}

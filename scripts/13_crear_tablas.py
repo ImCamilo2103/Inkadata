@@ -15,9 +15,9 @@ cur = conn.cursor()
 
 años = [2016, 2019, 2022]
 
-dict_path = '../Inkadata/diccionarios/clasificacion_dict.csv'
-departamentos = '../Inkadata/documentos/DIVIPOLA_Departamentos.xlsx'
-codemp = '../Inkadata/documentos/EstructuraDetalladaCIIU_4AC.xls'
+dict_path = 'C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/diccionarios/clasificacion_dict.csv'
+departamentos = 'C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/documentos/DIVIPOLA_Departamentos.xlsx'
+codemp = 'C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/documentos/EstructuraDetalladaCIIU_4AC.xls'
 
 dpto = pd.read_excel(departamentos, skiprows=9)
 ciiu = pd.read_excel(codemp, skiprows=2)

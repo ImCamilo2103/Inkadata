@@ -12,7 +12,7 @@ conn = pg.connect(host=secrets['host'],
 cur = conn.cursor()
 
 años = [2016, 2019, 2022]
-feam = '../Inkadata/data/cleaned/eam{}.xlsx'
+feam = 'C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/data/cleaned/eam{}.xlsx'
 
 typemap = {
     'int64': 'BIGINT',
@@ -36,7 +36,7 @@ for año in años:
         colsql.append(f'{name} {pgtype}')
         
     print(f'🧱 Definición SQL para {team}:')
-    print(',\n'.join(colsql))
+    print(',/n'.join(colsql))
 
     sql = f'DROP TABLE IF EXISTS {team} CASCADE;'
     cur.execute(sql)

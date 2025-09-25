@@ -89,14 +89,13 @@ for anio in year:
                 c4.descripcion,
                 dp.nombre,
                 {cols}
-            FROM
-                empresas{anio} e{anio}
+            FROM empresas{anio} e{anio}
             JOIN dpto dp ON dp.id = e{anio}.dpto
             JOIN ciiu4 c4 ON c4.id = e{anio}.ciiu4
-            JOIN otros{anio} ot{anio} ON ot{anio}.empresas_id = e{anio}.id
-            JOIN producción{anio} pr{anio} ON pr{anio}.empresas_id = e{anio}.id
-            JOIN sueldos_y_prestaciones{anio} su{anio} ON su{anio}.empresas_id = e{anio}.id
-            JOIN temporal{anio} te{anio} ON te{anio}.empresas_id = e{anio}.id;'''
+            LEFT JOIN otros{anio} ot{anio} ON ot{anio}.empresas_id = e{anio}.id
+            LEFT JOIN producción{anio} pr{anio} ON pr{anio}.empresas_id = e{anio}.id
+            LEFT JOIN sueldos_y_prestaciones{anio} su{anio} ON su{anio}.empresas_id = e{anio}.id
+            LEFT JOIN temporal{anio} te{anio} ON te{anio}.empresas_id = e{anio}.id;'''
     cur.execute(sql)
 
     print(f"🪧 Se Crea exitosamente la vista {eam}")
