@@ -29,34 +29,33 @@ for types in clasificacion['categoria']:
 
 for año in años:
     print(f'🪧 Insertando datos en tablas para el año {año}...')
-
     eam = pd.read_sql(f"SELECT * FROM eam{año}_raw", conn)
     stable = f'eam{año}_raw'
 
     for type in categoria:
         ntable = f"{type.lower().replace(' ', '_')}{año}"
-
         filclass = clasificacion[(clasificacion['año'] == año) & (clasificacion['categoria'] == type)]
         variable = filclass['variable'].tolist()
         excluir = ['nordemp', 'nordest', 'periodo', 'dpto', 'ciiu4']
         variable = [col.lower() for col in variable if col not in excluir]
 
-        if len(variable) == 0:
+        if not variable:
             print(f"⚡ No hay variables para crear tabla {ntable}, se omite.")
             continue
 
-        if 'empresas_id' not in variable:
-            variables = ['empresas_id'] + variable
+        variables = ['empresas_id', 'establecimiento_id'] + variable
 
         colsql = ', '.join(variables)
-        colsqls = 'e.id, ' + ', '.join([f'er.{v}' for v in variable])
+        colsqls = 'e.id, est.id, ' + ', '.join([f'er.{v}' for v in variable])
         
-
         sql = f'''INSERT INTO {ntable} ({colsql})
             SELECT {colsqls}
             FROM {stable} er
-            JOIN empresas{año} e ON er.nordemp = e.nordemp'''
+            JOIN empresas{año} e ON er.nordemp = e.nordemp
+            JOIN establecimiento{año} est ON est.nordest = er.nordest
+                AND e.id = est.empresas_id;'''
         cur.execute(sql)
+        print(f"🪧 → Datos insertados en {ntable}")
 
 conn.commit()
 print('📦 Commit realizado exitosamente.')

@@ -22,59 +22,52 @@ dpto = pd.read_excel(departamentos, skiprows=9, header=0)
 ciiu = pd.read_excel(codemp, skiprows=2, header=0)
 
 print('🪧 Inicia insercion de datos a la tabla dpto...')
-
 dpto = dpto[dpto['Nombre'].notna()].copy()
 dpto = dpto[~dpto['Nombre'].str.contains('fuente|nota|actualizado', case=False, na=False)]
-dpto['Nombre'] = dpto['Nombre'].str.lower()
-
-dpto = dpto.astype({
-    'Codigo': 'int',
-    'Nombre': 'str'
-})
-
-for idx, row in dpto.iterrows():
-    placeholder = (row['Codigo'], row['Nombre'])
-    print(placeholder)
-    sql = '''INSERT INTO dpto(
-        Codigo, Nombre)
-        values(%s, %s);'''
-    cur.execute(sql, placeholder)
-
+dpto['Nombre'] = dpto['Nombre'].str.lower().str.strip()
+dpto = dpto.astype({'Codigo': 'int', 'Nombre': 'str'})
+dpto_records = list(dpto[['Codigo', 'Nombre']].itertuples(index=False, name=None))
+sql = '''INSERT INTO dpto(
+    Codigo_dpto, Nombre_dpto)
+    values(%s, %s);'''
+cur.executemany(sql, dpto_records)
 print('✅ Tabla dpto insertada completamente.')
-print('🪧 Inicia insercion de datos a la tabla ciiu4...')
 
+print('🪧 Inicia insercion de datos a la tabla ciiu4...')
 ciiu = ciiu[ciiu['Clase'].notna()].copy()
 ciiu['Clase'] = ciiu['Clase'].astype(int)
 ciiu['Clase_str'] = ciiu['Clase'].astype(str).str.zfill(4)
-
-for idx ,row in ciiu.iterrows():
-    clase = row['Clase_str']
-    descripcion = row['Descripcion']
-    print((clase, descripcion))
-    
-    sql = '''INSERT INTO ciiu4(
-    Clase, Descripcion)
+ciiu_records = list(ciiu[['Clase_str', 'Descripcion']].itertuples(index=False, name=None))
+sql = '''INSERT INTO ciiu4(
+    Clase_ciiu,Descripcion_ciiu)
     values(%s, %s);'''
-    cur.execute(sql, (clase, descripcion))
-
+cur.executemany(sql, ciiu_records)
 print('✅ Tabla ciiu4 insertada completamente.')
 
 for año in años:
     print(f'🪧 Iniciamos con la insercion de datos tabla empresas{año}...')
-
-    sql = f'''INSERT INTO empresas{año}(nordemp, nordest, dpto, ciiu4, periodo)
+    sql = f'''INSERT INTO empresas{año}(nordemp, periodo)
         SELECT DISTINCT
             e.nordemp,
-            e.nordest,
-            d.id,
-            c.id,
             e.periodo
-        FROM eam{año}_raw e
-        JOIN dpto d ON e.dpto = d.codigo
-        JOIN ciiu4 c ON e.ciiu4 = c.clase;'''
+        FROM eam{año}_raw e;'''
     cur.execute(sql)
+    print(f'🪧  → Datos insertados en empresas{año}.')
 
-    print(f'   → Datos insertados en empresas{año}.')
+    print(f'🪧 Iniciamos con la insercion de datos tabla establecimiento{año}...')
+    sql = f'''INSERT INTO establecimiento{año}(empresas_id, nordest, dpto_id, ciiu4_id)
+        SELECT DISTINCT
+            emp.id AS empresas_id,
+            e.nordest,
+            d.id AS dpto_id,
+            c.id AS ciiu4_id
+        FROM eam{año}_raw e
+        JOIN empresas{año} emp ON emp.nordemp = e.nordemp
+            AND emp.periodo = e.periodo
+        JOIN dpto d ON d.codigo_dpto = e.dpto
+        JOIN ciiu4 c ON c.clase_ciiu = e.ciiu4;'''
+    cur.execute(sql)
+    print(f'🪧  → Datos insertados en establecimiento{año}.')
 
 conn.commit()
 print('📦 Commit realizado exitosamente.')

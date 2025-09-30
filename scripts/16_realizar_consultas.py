@@ -86,21 +86,24 @@ for anio in year:
     sql = f'''CREATE VIEW {eam} AS
             SELECT
                 e{anio}.nordemp,
-                c4.descripcion,
-                dp.nombre,
+                est{anio}.nordest,
+                c4.descripcion_ciiu AS clase_ciiu,
+                dp.nombre_dpto AS departamento,
                 {cols}
-            FROM empresas{anio} e{anio}
-            JOIN dpto dp ON dp.id = e{anio}.dpto
-            JOIN ciiu4 c4 ON c4.id = e{anio}.ciiu4
-            LEFT JOIN otros{anio} ot{anio} ON ot{anio}.empresas_id = e{anio}.id
-            LEFT JOIN producción{anio} pr{anio} ON pr{anio}.empresas_id = e{anio}.id
-            LEFT JOIN sueldos_y_prestaciones{anio} su{anio} ON su{anio}.empresas_id = e{anio}.id
-            LEFT JOIN temporal{anio} te{anio} ON te{anio}.empresas_id = e{anio}.id;'''
+            FROM establecimiento{anio} est{anio} 
+            JOIN empresas{anio} e{anio} ON e{anio}.id = est{anio}.empresas_id
+            JOIN dpto dp ON dp.id = est{anio}.dpto_id
+            JOIN ciiu4 c4 ON c4.id = est{anio}.ciiu4_id
+            LEFT JOIN otros{anio} ot{anio} ON ot{anio}.establecimiento_id = est{anio}.id
+            LEFT JOIN producción{anio} pr{anio} ON pr{anio}.establecimiento_id = est{anio}.id
+            LEFT JOIN sueldos_y_prestaciones{anio} su{anio} ON su{anio}.establecimiento_id = est{anio}.id
+            LEFT JOIN temporal{anio} te{anio} ON te{anio}.establecimiento_id = est{anio}.id;'''
     cur.execute(sql)
 
     print(f"🪧 Se Crea exitosamente la vista {eam}")
 
 conn.commit()
+print('📦 Commit realizado exitosamente.')
 cur.close()
 conn.close()
 
