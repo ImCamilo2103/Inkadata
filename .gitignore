@@ -32,4 +32,18 @@ credentials.json
 *.csv
 *.xlsx
 /data/
+scripts/.Rhistory
 hidden.R
+
+# Datos 📚 Latex
+*.aux
+*.fdb_latexmk
+*.fls
+*.toc
+*.synctex.gz
+arbol.tex
+
+# 🗃️ otros
+*.bak
+*.tmp
+Thumbs.db

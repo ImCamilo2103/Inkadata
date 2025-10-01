@@ -4,8 +4,10 @@ import psycopg2 as pg
 
 secrets = hidden.secrets()
 
-file = 'C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/diccionarios/clasificacion_dict.csv'
-dicv = pd.read_csv(file)
+filedic = 'C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/diccionarios/clasificacion_dict.csv'
+filevar = 'C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/diccionarios/variable_utilizar.csv'
+dicv = pd.read_csv(filedic)
+vari = pd.read_csv(filevar, encoding='latin1', sep=",")
 
 años = {
     523 : 2016,
@@ -22,12 +24,11 @@ conn = pg.connect(
 )
 cur = conn.cursor()
 
-hm = dicv[dicv['labl'].str.contains('Hombre|Mujer')]
-hm['años'] = hm['sid'].map(años)
-hm['años'] = hm['años'].astype(str)
-hm['ntable'] = hm['categoria'] + hm['años']
-hm['ntable'] = hm['ntable'].str.lower().str.replace(" ", "_")
-hm = hm.copy()
+dicv['años'] = dicv['sid'].map(años).astype(str)
+dicv['ntable'] = dicv['categoria'] + dicv['años']
+dicv['ntable'] = dicv['ntable'].str.lower().str.replace(" ", "_")
+
+hm = dicv[dicv['variable'].isin(vari['variable'])].copy()
 
 table = []
 year = []
@@ -94,6 +95,7 @@ for anio in year:
             JOIN empresas{anio} e{anio} ON e{anio}.id = est{anio}.empresas_id
             JOIN dpto dp ON dp.id = est{anio}.dpto_id
             JOIN ciiu4 c4 ON c4.id = est{anio}.ciiu4_id
+            LEFT JOIN activos{anio} ac{anio} ON ac{anio}.establecimiento_id = est{anio}.id
             LEFT JOIN otros{anio} ot{anio} ON ot{anio}.establecimiento_id = est{anio}.id
             LEFT JOIN producción{anio} pr{anio} ON pr{anio}.establecimiento_id = est{anio}.id
             LEFT JOIN sueldos_y_prestaciones{anio} su{anio} ON su{anio}.establecimiento_id = est{anio}.id

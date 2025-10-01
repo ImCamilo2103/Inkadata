@@ -77,10 +77,10 @@ for (año in años) {
   cat("✅ Vista guardada como CSV:", csv_path, "\n")
 }
 
-var_file <- "C:/Users/Asus/Documents/data_analysis/portafolio/Inkadata/diccionarios/variables_estadisticas.csv"
+var_file <- "C:/Users/Asus/Documents/data_analysis/portafolio/Inkadata/diccionarios/variable_utilizar.csv"
 outdir_tablas <- "C:/Users/Asus/Documents/data_analysis/portafolio/Inkadata/tablas"
 
-variable_df <- read.csv(var_file, fileEncoding = "Latin1", sep = ";")
+variable_df <- read.csv(var_file, fileEncoding = "Latin1")
 variables_a_analizar <- variable_df$variable
 
 r_metrica <- data.frame(
@@ -114,8 +114,9 @@ for (año in años) {
     if (var %in% colnames(df_actual)) {
       datos <- as.numeric(df_actual[[var]])
       datos_validos <- datos[!is.na(datos)]
+      cat(paste("✅ OK - Variable:", var, "- Datos Válidos (Length):", length(datos_validos), "\n"))
       
-      if (length(datos_validos) > 1){
+      if (length(datos_validos) >= -2){
         media <- mean(datos_validos)
         mediana <- median(datos_validos)
         
@@ -150,7 +151,7 @@ for (año in años) {
   }
 }
 
-tabla_path <- file.path(outdir_tablas, "medidas_tendencia_dispersion_final.csv")
+tabla_path <- file.path(outdir_tablas, "medidas_tendencia.csv")
 write.csv(r_metrica, tabla_path, row.names = FALSE, quote =  FALSE, fileEncoding = "Latin1")
 cat(paste("\n✅ Proceso de métricas descriptivas completo. Tabla guardada en:", tabla_path, "\n"))
 

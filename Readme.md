@@ -18,16 +18,22 @@
 
 ## 📌 Contenido
 
-- [👨🏻‍🎓 Licencias](#-Licencias)
-- [🏭 Dominio del Proyecto](#-dominio-del-proyecto)
-- [🎯 Objetivos](#-objetivos)
-- [🗂️ Estructura del Proyecto](#️-estructura-del-proyecto)
-- [🚀 Primeros Pasos](#-primeros-pasos)
-- [🧠 Tecnologías Utilizadas](#-tecnologías-utilizadas)
-- []()
-- [🎨 Paleta de colores DatAndes](#-Paleta-de-colores-DatAndes)
-- [🧑‍🤝‍🧑 Stakeholders del Proyecto](#-Stakeholders-del-Proyecto)
-- [📬 Contacto](#-contacto)
+- [🗻 DatAndes Analytics](#-datandes-analytics)
+  - [🦅 Inkadata Economico](#-inkadata-economico)
+  - [📌 Contenido](#-contenido)
+  - [👨🏻‍🎓 Licencias](#-licencias)
+  - [🏭 Dominio del Proyecto](#-dominio-del-proyecto)
+  - [🎯 Objetivos](#-objetivos)
+  - [🗂️ Estructura del Proyecto](#️-estructura-del-proyecto)
+  - [🚀 Primeros Pasos](#-primeros-pasos)
+    - [1. Clona este repositorio](#1-clona-este-repositorio)
+    - [2. Crea un entorno virtual e instala las dependencias](#2-crea-un-entorno-virtual-e-instala-las-dependencias)
+    - [3. Ejecuta los scripts en orden lógico](#3-ejecuta-los-scripts-en-orden-lógico)
+  - [🧠 Tecnologías Utilizadas](#-tecnologías-utilizadas)
+  - [Imagen de Tablas Normalizadas](#imagen-de-tablas-normalizadas)
+    - [🎨 Paleta de colores DatAndes](#-paleta-de-colores-datandes)
+    - [🧑‍🤝‍🧑 Stakeholders del Proyecto](#-stakeholders-del-proyecto)
+  - [📬 Contacto](#-contacto)
 
 ---
 
@@ -36,7 +42,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python)](https://www.python.org/)
 [![Status](https://img.shields.io/badge/status-En%20Proceso-yellow)]()
-[![Made With 💻 & 📊](https://img.shields.io/badge/made%20with-Python%20%7C%20SQL%20%7C%20PostgreSQL%20%7C%20Pandas-blueviolet)]()
+[![Made With 💻 & 📊](https://img.shields.io/badge/made%20with-Python%20%7C%20SQL%20%7C%20PostgreSQL%20%7C%20Pandas%20%7C%20Latex-blueviolet)]()
 
 ---
 
@@ -100,16 +106,20 @@ python  scripts/11_limpieza _datos.py
 python  scripts/12_cargar_datos_dbraw.py
 python  scripts/13_crear_tablas.py
 python  scripts/14_insert_auxiliares_y_empresas.py
-python  scripts/insert_3nf.py
+python  scripts/15_insert_3nf.py
+python  scripts/16_realizar_consultas.py
+R       scripts/17_eda.R
+latex   scripts/18_analisis_exploratorio.tex
 ```
 ---
 
 ## 🧠 Tecnologías Utilizadas
 
-*  **Python** 🐍 (Pandas)
+* **Python** 🐍 (Pandas)
 * **PostgreSQL** 🐘
 * **SQL** para consultas analíticas
 * **Git + GitHub** para control de versiones
+* **Latex** generar los informes eda
 * **Tableau / Power BI** para dashboards
 
 ---
