@@ -1,24 +1,67 @@
 \documentclass[a4paper, 12pt]{article}
 
+\usepackage{fontspec}
+\usepackage[spanish]{babel}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{float} % Para usar [H]
+\usepackage{caption} % Para mejorar las leyendas de tablas
+\usepackage{pdflscape}
+\usepackage{adjustbox}
 
+\geometry{margin=2.5cm}
+\setmainfont{Times New Roman}
 
-\title{Analisis Exploratorio EAM 2016, 2019, 2022}
-\author{DatAndes Analytics -Inkadata}
+\title{Análisis Descriptivo de Variables EAM}
+\author{DatAndes Analytics -- Inkadata}
 
 \begin{document}
+
 \maketitle
 \tableofcontents
 \newpage
 
 \section{Introducción}
 Este reporte presenta el análisis de medidas de tendencia central y dispersión para los datos de las empresas y establecimientos, cubriendo los años 2016, 2019 y 2022. 
-Se incluyen medias, medianas, desviaciones estándar, máximos y mínimos para cada
+Se incluyen medias, medianas, desviaciones estándar, cuartiles, asimetría y curtosis para cada variable analizada.
 
 \section{Metodología}
-Se utilizaron los datos cargados en memoria en R, directamente desde las vistas de la base de datos PostgreSQL. 
-Se calcularon las medidas estadísticas básicas por año, asegurando que los datos de cada año sean tratados de manera independiente.
+\begin{itemize}
+    \item Los datos fueron obtenidos de las vistas \texttt{eam2016}, \texttt{eam2019} y \texttt{eam2022} en la base de datos PostgreSQL.
+    \item El procesamiento estadístico se realizó en \texttt{R}, utilizando los paquetes \texttt{dplyr}, \texttt{e1071} y \texttt{ggplot2}.
+    \item Se calcularon medidas descriptivas clásicas: media, mediana, desviación estándar, varianza, coeficiente de variación, asimetría y curtosis.
+    \item Los resultados fueron exportados a tablas y gráficas para facilitar su interpretación.
+\end{itemize}
 
 \section{Resultados}
 
+\subsection{Tablas Resumen}
+A continuación se presentan las medidas descriptivas de las variables seleccionadas.  
+Cada vez que el script de Python se ejecute, la tabla se actualizará automáticamente.
+
+\newgeometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm}
+\begin{landscape}
+\begin{table}[htbp]
+    \centering
+    \begin{adjustbox}{max width=\textwidth, max totalheight=\textheight, keepaspectratio}
+    \input{C:/Users/Asus/Documents/data_analysis/Portafolio/Inkadata/tablas/medidas_tendencia.tex}
+    \end{adjustbox}
+    \caption{Medidas de tendencia y dispersión por variable}
+\end{table}
+\end{landscape}
+\restoregeometry
+
+\subsection{Visualizaciones}
+Se generaron histogramas, diagramas de caja y gráficos de dispersión para visualizar la distribución de las variables más relevantes.
+
+\section{Conclusiones}
+
+\begin{itemize}
+    \item Las variables muestran una tendencia estable en los tres periodos, aunque con diferencias notables en dispersión.
+    \item El coeficiente de variación indica que algunas variables tienen una alta heterogeneidad, lo que puede deberse a la estructura productiva de las empresas.
+    \item La asimetría positiva sugiere concentración de empresas con valores bajos en ciertas variables, mientras unas pocas tienen valores muy altos.
+    \item La curtosis alta en algunas variables sugiere colas pesadas, indicando posibles outliers o concentración de valores extremos.
+\end{itemize}
 
 \end{document}
